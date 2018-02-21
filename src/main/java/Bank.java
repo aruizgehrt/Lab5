@@ -8,9 +8,10 @@
  * @see <a href="https://cs125.cs.illinois.edu/lab/8/">Lab 8 Description</a>
  */
 public class Bank {
+    /** Instance variable for Bank. */
+    private String bankName;
 
-    public String bankName;
-
+    /** Bank setter */
     public Bank() {
         bankName = "Illini Bank";
     }
@@ -26,9 +27,12 @@ public class Bank {
      * @return boolean
      */
     public boolean withdrawMoney(final BankAccount bankAccount, final double amount) {
-        /*
-         * Implement this function
-         */
+        if (amount > bankAccount.getAccountBalance()) {
+            bankAccount.adjustBalance(amount);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -45,6 +49,7 @@ public class Bank {
         /*
          * Implement this function
          */
+        return true;
     }
 
     /**
@@ -64,6 +69,7 @@ public class Bank {
         /*
          * Implement this function
          */
+        return true;
     }
 
     /**
@@ -89,6 +95,7 @@ public class Bank {
         /*
          * Implement this function
          */
+        return 0;
     }
 
     /**
